@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoodWallChallenge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow Notes • Random Facts & Warm Words</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #1e0f3d, #2a1b5f);
+      color: #f0e6ff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 680px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #c4a1ff, #ff9af7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fact {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    button {
+      background: #ff9af7;
+      color: #1e0f3d;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: #c4a1ff;
+    }
+    .note {
+      margin-top: 30px;
+      font-style: italic;
+      color: #d4b3ff;
+      font-size: 1.15rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to GoodWallChallenge</h1>
+  <div class="container">
+    <h1>Glow Notes</h1>
+    <p style="opacity: 0.8; margin-bottom: 30px;">A random beautiful fact + a note just for you</p>
+    
+    <div class="fact" id="fact">
+      Click the button to receive a beautiful fact and a warm note ❤️
+    </div>
+    
+    <button onclick="generateNote()">Give Me a Glow Note</button>
+    
+    <div class="note" id="personalNote"></div>
+  </div>
+
+  <script>
+    const facts = [
+      "Octopuses have three hearts and blue blood.",
+      "A flock of flamingos is called a flamboyance.",
+      "The smell of rain is caused by a bacteria called actinomycetes.",
+      "Honey never spoils. Archaeologists found 3000-year-old honey in tombs.",
+      "The human brain is capable of creating more ideas than there are atoms in the known universe.",
+      "A single bolt of lightning contains enough energy to toast 100,000 slices of bread.",
+      "Sea otters hold hands while sleeping so they don't drift apart.",
+      "The heart of a blue whale is so big, a human can swim through its arteries."
+    ];
+
+    const notes = [
+      "Just like the octopus with three hearts, you have so much love and strength inside you. Keep shining.",
+      "Be a flamboyance today — stand tall, be bold, and light up every room you enter.",
+      "Even after the storm, beauty comes. The smell of rain reminds us that new beginnings have their own magic.",
+      "Some things, like real honey and real connections, never spoil. You're one of those rare things.",
+      "Your mind is limitless. Never underestimate the power of your thoughts and dreams.",
+      "You carry lightning inside you. One spark from you can light up someone's whole day.",
+      "Hold on to the people who matter, just like sea otters. You're worth holding onto.",
+      "Your heart is bigger than you know. The world needs exactly what only you can give."
+    ];
+
+    function generateNote() {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      
+      document.getElementById("fact").innerHTML = `<strong>Fact:</strong> ${facts[randomIndex]}`;
+      document.getElementById("personalNote").innerHTML = 
+        `💌 A little note for you:<br><br>${notes[randomIndex]}`;
+    }
+  </script>
 </body>
 </html>
